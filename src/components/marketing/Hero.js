@@ -73,7 +73,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
-                            className="absolute left-[50%] -translate-x-1/2 top-10 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 w-64 z-20"
+                            className="absolute left-[50%] -translate-x-1/2 top-24 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 w-64 z-20"
                         >
                             <div className="bg-teal-100 p-3 rounded-xl">
                                 <ShieldCheck className="h-6 w-6 text-teal-600" />
