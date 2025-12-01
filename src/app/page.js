@@ -1,50 +1,72 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
-import { User, Stethoscope } from "lucide-react";
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { Stethoscope, Lock } from "lucide-react";
+
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (email === "medico@gmail.com") {
+      router.push("/doctor");
+    } else if (email === "paziente@gmail.com") {
+      router.push("/patient-dashboard");
+    } else {
+      setError("Invalid email. Use medico@gmail.com or paziente@gmail.com");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
-      <div className="text-center mb-12 space-y-4">
-        <div className="inline-flex items-center justify-center bg-teal-100 p-3 rounded-2xl mb-4">
-          <Stethoscope className="h-10 w-10 text-teal-600" />
+      <div className="text-center mb-8 space-y-2">
+        <div className="inline-flex items-center justify-center bg-teal-600 p-3 rounded-2xl mb-4 shadow-lg shadow-teal-600/20">
+          <Stethoscope className="h-8 w-8 text-white" />
         </div>
-        <h1 className="text-4xl font-bold text-slate-900 tracking-tight">Welcome to MediCare<span className="text-teal-600">Pro</span></h1>
-        <p className="text-slate-500 text-lg max-w-md mx-auto">
-          Advanced healthcare management for professionals and patients. Secure, intelligent, and efficient.
-        </p>
+        <h1 className="text-3xl font-bold text-slate-900 tracking-tight">MediCare<span className="text-teal-600">Pro</span></h1>
+        <p className="text-slate-500">Secure Access Portal</p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6 max-w-4xl w-full">
-        <Link href="/doctor" className="group">
-          <Card className="h-full hover:border-teal-500 transition-all hover:shadow-lg cursor-pointer group-hover:scale-[1.02]">
-            <CardHeader className="text-center pb-2">
-              <div className="mx-auto bg-teal-50 p-4 rounded-full mb-4 group-hover:bg-teal-100 transition-colors">
-                <Stethoscope className="h-8 w-8 text-teal-600" />
+      <Card className="w-full max-w-md shadow-xl border-slate-200">
+        <CardHeader className="space-y-1 text-center pb-2">
+          <CardTitle className="text-xl">Sign in to your account</CardTitle>
+          <p className="text-sm text-slate-500">Enter your email to access the portal</p>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div className="space-y-2">
+              <div className="relative">
+                <Lock className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+                <Input
+                  type="email"
+                  placeholder="name@example.com"
+                  className="pl-9"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
-              <CardTitle>Doctor Access</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center text-slate-500">
-              Manage patients, view records, and access AI assistance.
-            </CardContent>
-          </Card>
-        </Link>
-
-        <Link href="/patient/1" className="group">
-          <Card className="h-full hover:border-blue-500 transition-all hover:shadow-lg cursor-pointer group-hover:scale-[1.02]">
-            <CardHeader className="text-center pb-2">
-              <div className="mx-auto bg-blue-50 p-4 rounded-full mb-4 group-hover:bg-blue-100 transition-colors">
-                <User className="h-8 w-8 text-blue-600" />
-              </div>
-              <CardTitle>Patient Portal</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center text-slate-500">
-              View your medical history, appointments, and prescriptions.
-            </CardContent>
-          </Card>
-        </Link>
-      </div>
+              {error && <p className="text-sm text-red-500 font-medium">{error}</p>}
+            </div>
+            <Button type="submit" className="w-full" size="lg">
+              Sign In
+            </Button>
+            <div className="text-center text-xs text-slate-400 mt-4">
+              <p>Demo Credentials:</p>
+              <p>Doctor: medico@gmail.com</p>
+              <p>Patient: paziente@gmail.com</p>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
     </div>
   );
 }
