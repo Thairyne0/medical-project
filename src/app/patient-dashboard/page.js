@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { FileUpload } from "@/components/FileUpload";
 import { DoctorMessages } from "@/components/DoctorMessages";
-import { FileText, Sparkles, Clock, CheckCircle } from "lucide-react";
+import { FileText, Sparkles, Clock, CheckCircle, Activity } from "lucide-react";
 
 export default function PatientDashboard() {
     const [documents, setDocuments] = useState([
@@ -103,11 +103,56 @@ export default function PatientDashboard() {
                         </Card>
                     </div>
 
-                    {/* Right Column: Doctor's Corner */}
+                    {/* Right Column: Doctor's Corner & Vitals */}
                     <div className="space-y-8">
+                        {/* Vitals Monitoring */}
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2 text-lg">
+                                    <Activity className="h-5 w-5 text-red-500" /> My Vitals
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                                    <span className="text-sm text-slate-600">Heart Rate</span>
+                                    <span className="font-bold text-slate-900">72 bpm</span>
+                                </div>
+                                <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                                    <span className="text-sm text-slate-600">Blood Pressure</span>
+                                    <span className="font-bold text-slate-900">120/80</span>
+                                </div>
+                                <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                    <span className="text-sm text-slate-600">Steps Today</span>
+                                    <span className="font-bold text-slate-900">4,521</span>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* AI Symptom Checker */}
+                        <Card className="bg-gradient-to-br from-indigo-600 to-purple-700 text-white border-none">
+                            <CardContent className="p-6">
+                                <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
+                                    <Sparkles className="h-4 w-4 text-yellow-300" /> AI Symptom Checker
+                                </h3>
+                                <p className="text-indigo-100 text-sm mb-4">
+                                    Feeling unwell? Describe your symptoms and get instant AI-powered triage advice.
+                                </p>
+                                <div className="relative">
+                                    <input
+                                        type="text"
+                                        placeholder="e.g. I have a headache..."
+                                        className="w-full px-4 py-2 rounded-lg text-slate-900 text-sm focus:outline-none"
+                                    />
+                                    <Button size="sm" className="absolute right-1 top-1 h-7 bg-indigo-800 hover:bg-indigo-900 text-white">
+                                        Check
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </Card>
+
                         <Card className="bg-gradient-to-br from-teal-600 to-teal-700 text-white border-none">
                             <CardContent className="p-6">
-                                <h3 className="text-lg font-bold mb-2">AI Health Assistant</h3>
+                                <h3 className="text-lg font-bold mb-2">Health Assistant</h3>
                                 <p className="text-teal-100 text-sm mb-4">
                                     Your latest blood test results show normal cholesterol levels. Keep up the good work!
                                 </p>

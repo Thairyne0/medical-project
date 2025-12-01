@@ -104,32 +104,100 @@ export const patients = [
 ];
 
 export const notifications = [
+    { id: 1, type: "alert", message: "Patient #1234 vitals critical", time: "5 min ago" },
+    { id: 2, type: "info", message: "Lab results ready for Maria Bianchi", time: "1 hour ago" },
+    { id: 3, type: "reminder", message: "Appointment with Giovanni Verdi at 3 PM", time: "2 hours ago" }
+];
+
+// Messages between doctors and patients
+export const messages = {
+    1: [ // Messages for patient ID 1
+        {
+            id: 1,
+            from: "doctor",
+            sender: "Dr. Rossi",
+            text: "Buongiorno Marco, ho visto i tuoi ultimi esami del sangue. I valori sono nella norma.",
+            timestamp: "2023-11-20 10:30",
+            type: "text"
+        },
+        {
+            id: 2,
+            from: "patient",
+            sender: "Marco Bianchi",
+            text: "Grazie dottore! Devo fare altri controlli?",
+            timestamp: "2023-11-20 11:15",
+            type: "text"
+        },
+        {
+            id: 3,
+            from: "doctor",
+            sender: "Dr. Rossi",
+            text: "Ti consiglio una visita di controllo tra 3 mesi. Ho programmato un appuntamento.",
+            timestamp: "2023-11-20 14:00",
+            type: "visit_recommendation",
+            visitDetails: {
+                date: "2024-02-20",
+                time: "10:00",
+                reason: "Controllo di routine"
+            }
+        }
+    ],
+    2: [
+        {
+            id: 1,
+            from: "doctor",
+            sender: "Dr. Rossi",
+            text: "Maria, ho analizzato la tua radiografia. Tutto apposto, nessuna anomalia rilevata.",
+            timestamp: "2023-11-18 09:00",
+            type: "text"
+        }
+    ]
+};
+
+// Visit recommendations
+export const visitRecommendations = [
     {
         id: 1,
-        title: "Lab Results Ready",
-        message: "Blood work results for Giulia Bianchi are available.",
-        time: "10 min ago",
-        type: "info"
-    },
-    {
-        id: 2,
-        title: "Appointment Cancelled",
-        message: "Luca Verdi cancelled his appointment for tomorrow.",
-        time: "1 hour ago",
-        type: "warning"
-    },
-    {
-        id: 3,
-        title: "System Update",
-        message: "System maintenance scheduled for tonight at 2 AM.",
-        time: "3 hours ago",
-        type: "system"
-    },
-    {
-        id: 4,
-        title: "New Patient Registered",
-        message: "Alessandro Gialli has been assigned to you.",
-        time: "5 hours ago",
-        type: "success"
+        patientId: 1,
+        doctorName: "Dr. Rossi",
+        date: "2024-02-20",
+        time: "10:00",
+        reason: "Controllo di routine",
+        status: "pending",
+        notes: "Portare esami del sangue recenti"
     }
 ];
+
+// AI Analysis results for documents
+export const aiAnalysisResults = {
+    1: {
+        documentName: "Blood Test Results.pdf",
+        analysisDate: "2023-11-20",
+        summary: "Valori nella norma. Colesterolo leggermente elevato ma accettabile.",
+        findings: [
+            { parameter: "Colesterolo totale", value: "195 mg/dL", status: "normal", note: "Limite superiore 200 mg/dL" },
+            { parameter: "HDL", value: "55 mg/dL", status: "good", note: "Valore ottimale" },
+            { parameter: "LDL", value: "120 mg/dL", status: "normal", note: "Entro i limiti" },
+            { parameter: "Trigliceridi", value: "100 mg/dL", status: "good", note: "Valore ottimale" }
+        ],
+        recommendations: [
+            "Continuare dieta equilibrata",
+            "Attività fisica regolare (30 min/giorno)",
+            "Controllo tra 6 mesi"
+        ]
+    },
+    2: {
+        documentName: "X-Ray Report.pdf",
+        analysisDate: "2023-10-15",
+        summary: "Radiografia torace: nessuna anomalia rilevata.",
+        findings: [
+            { area: "Polmoni", status: "normal", note: "Campi polmonari liberi" },
+            { area: "Cuore", status: "normal", note: "Ombra cardiaca nella norma" },
+            { area: "Strutture ossee", status: "normal", note: "Nessuna frattura" }
+        ],
+        recommendations: [
+            "Nessun follow-up necessario",
+            "Controllo annuale di routine"
+        ]
+    }
+};

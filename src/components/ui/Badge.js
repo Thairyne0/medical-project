@@ -1,6 +1,7 @@
+import React from "react";
 import { cn } from "@/lib/utils";
 
-export function Badge({ className, variant = "default", children, ...props }) {
+function Badge({ className, variant = "default", ...props }) {
     const variants = {
         default: "border-transparent bg-teal-600 text-white hover:bg-teal-700",
         secondary: "border-transparent bg-slate-100 text-slate-900 hover:bg-slate-200",
@@ -16,8 +17,8 @@ export function Badge({ className, variant = "default", children, ...props }) {
                 className
             )}
             {...props}
-        >
-            {children}
-        </div>
+        />
     );
 }
+
+export { Badge };
