@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Badge } from "@/components/ui/Badge";
 import { Send, Calendar, FileText } from "lucide-react";
 import { useState } from "react";
 
@@ -40,8 +39,8 @@ export function MessagingPanel({ messages = [], onSendMessage, userType = "patie
                             >
                                 <div
                                     className={`max-w-[80%] rounded-2xl px-4 py-3 ${msg.from === userType
-                                            ? "bg-teal-600 text-white"
-                                            : "bg-slate-100 text-slate-900"
+                                        ? "bg-teal-600 text-white"
+                                        : "bg-slate-100 text-slate-900"
                                         }`}
                                 >
                                     <div className="flex items-center gap-2 mb-1">

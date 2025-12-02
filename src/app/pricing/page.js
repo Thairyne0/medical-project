@@ -49,7 +49,7 @@ export default function PricingPage() {
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <h1 className="text-4xl lg:text-5xl font-bold mb-6">Simple, Transparent Pricing</h1>
                         <p className="text-xl text-slate-500">
-                            Choose the plan that fits your institution's needs. No hidden fees.
+                            Choose the plan that fits your institution&apos;s needs. No hidden fees.
                         </p>
                     </div>
 

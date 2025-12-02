@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Upload, File, X, CheckCircle } from "lucide-react";
+import { Upload, File, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 

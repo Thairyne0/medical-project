@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { use } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -11,15 +11,12 @@ import Link from "next/link";
 
 export default function PatientDetailPage({ params }) {
     // Unwrap params using React.use()
+    // Unwrap params using React.use()
     const unwrappedParams = use(params);
-    const [patient, setPatient] = useState(null);
 
-    useEffect(() => {
-        if (unwrappedParams?.id) {
-            const found = patients.find(p => p.id === unwrappedParams.id);
-            setPatient(found);
-        }
-    }, [unwrappedParams]);
+    const patient = unwrappedParams?.id
+        ? patients.find(p => p.id === unwrappedParams.id)
+        : null;
 
     if (!patient) {
         return <div className="min-h-screen flex items-center justify-center">Loading...</div>;

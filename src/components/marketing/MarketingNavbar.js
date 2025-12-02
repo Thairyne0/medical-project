@@ -22,6 +22,7 @@ export function MarketingNavbar() {
     const navLinks = [
         { name: "Products", href: "/products" },
         { name: "Solutions", href: "/solutions" },
+        { name: "Doctor Demo", href: "/doctor-demo" },
         { name: "Pricing", href: "/pricing" },
         { name: "About", href: "/about" },
         { name: "Contact", href: "/contact" },

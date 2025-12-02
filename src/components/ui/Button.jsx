@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export const Button = React.forwardRef(
-    ({ className, variant = "primary", size = "md", children, ...props }, ref) => {
+const Button = React.forwardRef(
+    ({ className, variant = "primary", size = "md", ...props }, ref) => {
         const variants = {
             primary: "bg-teal-600 text-white hover:bg-teal-700 shadow-md shadow-teal-600/20",
             secondary: "bg-slate-100 text-slate-900 hover:bg-slate-200",
@@ -20,18 +20,18 @@ export const Button = React.forwardRef(
 
         return (
             <button
-                ref={ref}
                 className={cn(
                     "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 disabled:pointer-events-none disabled:opacity-50",
                     variants[variant],
                     sizes[size],
                     className
                 )}
+                ref={ref}
                 {...props}
-            >
-                {children}
-            </button>
+            />
         );
     }
 );
 Button.displayName = "Button";
+
+export { Button };

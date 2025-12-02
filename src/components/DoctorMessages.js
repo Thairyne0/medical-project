@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { Calendar, MessageCircle } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { MessagingPanel } from "@/components/MessagingPanel";
 import { useState } from "react";
 import { messages as mockMessages, visitRecommendations } from "@/lib/mockData";

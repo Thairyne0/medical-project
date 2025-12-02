@@ -46,7 +46,7 @@ export default function PatientDashboard() {
             <main className="container mx-auto px-4 py-8">
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-slate-900">Welcome back, Marco</h1>
-                    <p className="text-slate-500">Here's your health overview</p>
+                    <p className="text-slate-500">Here&apos;s your health overview</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -103,7 +103,7 @@ export default function PatientDashboard() {
                         </Card>
                     </div>
 
-                    {/* Right Column: Doctor's Corner & Vitals */}
+                    {/* Right Column: Doctor&apos;s Corner & Vitals */}
                     <div className="space-y-8">
                         {/* Vitals Monitoring */}
                         <Card>
@@ -165,7 +165,7 @@ export default function PatientDashboard() {
                         <div>
                             <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
                                 <Clock className="h-5 w-5 text-slate-400" />
-                                Doctor's Updates
+                                Doctor&apos;s Updates
                             </h3>
                             <DoctorMessages />
                         </div>

@@ -1,7 +1,6 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { Bell, AlertCircle, Info, CheckCircle } from "lucide-react";
 import { notifications } from "@/lib/mockData";
-import { cn } from "@/lib/utils";
 
 export function NotificationList() {
     const getIcon = (type) => {
